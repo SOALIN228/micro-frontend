@@ -1,6 +1,2 @@
-/**
-  * User: soalin
-  * Date: 2022/4/22
-  * Time: 15:19
-  * Desc:
-  */
+// 加载资源
+export const fetchResource = url => fetch(url).then(async res => await res.text())

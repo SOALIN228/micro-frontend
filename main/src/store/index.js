@@ -1,6 +1,2 @@
-/**
-  * User: soalin
-  * Date: 2022/4/21
-  * Time: 11:41
-  * Desc:
-  */
+// 暴露loading的方法
+export * as loading from './loading'

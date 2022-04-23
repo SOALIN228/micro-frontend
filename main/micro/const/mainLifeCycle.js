@@ -1,6 +1,7 @@
-/**
-  * User: soalin
-  * Date: 2022/4/21
-  * Time: 10:57
-  * Desc:
-  */
+let lifecycle = {}
+
+export const getMainLifecycle = () => lifecycle
+
+export const setMainLifecycle = (data) => {
+  lifecycle = data
+}

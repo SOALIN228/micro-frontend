@@ -1,6 +1,9 @@
-/**
-  * User: soalin
-  * Date: 2022/4/19
-  * Time: 21:13
-  * Desc:
-  */
+import { isTurnChild } from '../utils'
+import { lifecycle } from '../lifeCycle'
+
+export const turnApp = async () => {
+  if (isTurnChild()) {
+    await lifecycle()
+    console.log('路由拦截')
+  }
+}

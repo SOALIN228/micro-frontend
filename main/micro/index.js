@@ -1,6 +1,1 @@
-/**
-  * User: soalin
-  * Date: 2022/4/19
-  * Time: 20:40
-  * Desc:
-  */
+export { registerMicroApps, start } from './start'

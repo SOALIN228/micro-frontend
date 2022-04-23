@@ -1,6 +1,7 @@
-/**
-  * User: soalin
-  * Date: 2022/4/19
-  * Time: 20:57
-  * Desc:
-  */
+let list = []
+
+export const getList = () => list
+
+export const setList = (appList) => {
+  list = appList
+}

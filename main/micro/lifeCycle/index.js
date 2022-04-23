@@ -1,6 +1,50 @@
-/**
-  * User: soalin
-  * Date: 2022/4/21
-  * Time: 15:43
-  * Desc:
-  */
+// 生命周期
+import { findAppByRoute } from '../utils'
+import { getMainLifecycle } from '../const/mainLifeCycle'
+import { loadHtml } from '../loader'
+
+export const lifecycle = async () => {
+  // 获取到上一个子应用
+  const prevApp = findAppByRoute(window.__ORIGIN_APP__)
+
+  // 获取到要跳转到的子应用
+  const nextApp = findAppByRoute(window.__CURRENT_SUB_APP__)
+  console.log(prevApp, nextApp)
+  if (!nextApp) {
+    return
+  }
+  // todo 不会触发
+  if (prevApp && prevApp.destoryed) {
+    destoryed(prevApp)
+  }
+
+  const app = await beforeLoad(nextApp)
+  await mounted(app)
+}
+
+export const beforeLoad = async (app) => {
+  await runMainLifeCycle('beforeLoad')
+  app && app.beforeLoad && app.beforeLoad()
+  // 加载子应用
+  const subApp = await loadHtml(app)
+  subApp && subApp.beforeLoad && subApp.beforeLoad()
+  return subApp
+}
+
+export const mounted = async (app) => {
+  app && app.mount && app.mount()
+  await runMainLifeCycle('mounted')
+}
+
+export const destoryed = async (app) => {
+  app && app.destoryed && app.destoryed()
+  // 执行主应用的生命周期
+  runMainLifeCycle('destoryed')
+}
+
+// 执行主应用的生命周期
+export const runMainLifeCycle = async (type) => {
+  const mainlife = getMainLifecycle()
+
+  await Promise.all(mainlife[type].map(async item => await item()))
+}
