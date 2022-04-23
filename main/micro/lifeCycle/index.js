@@ -24,10 +24,10 @@ export const lifecycle = async () => {
 
 export const beforeLoad = async (app) => {
   await runMainLifeCycle('beforeLoad')
-  app && app.beforeLoad && app.beforeLoad()
+  // app && app.beforeLoad && app.beforeLoad()
   // 加载子应用
   const subApp = await loadHtml(app)
-  subApp && subApp.beforeLoad && subApp.beforeLoad()
+  subApp && subApp.bootstrap && subApp.bootstrap()
   return subApp
 }
 
@@ -37,7 +37,7 @@ export const mounted = async (app) => {
 }
 
 export const destoryed = async (app) => {
-  app && app.destoryed && app.destoryed()
+  app && app.unmount && app.unmount()
   // 执行主应用的生命周期
   runMainLifeCycle('destoryed')
 }

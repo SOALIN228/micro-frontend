@@ -33,7 +33,6 @@ export const isTurnChild = () => {
     prefix = prefix[0]
   }
   window.__ORIGIN_APP__ = window.__CURRENT_SUB_APP__
-  console.log(window.__CURRENT_SUB_APP__, prefix)
   // 记录上一次路由
   if (window.__CURRENT_SUB_APP__ === prefix) {
     return false

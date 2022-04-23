@@ -1,9 +1,19 @@
-export const performScriptForFunction = (script) => {
+export const performScriptForFunction = (script, appName) => {
+  const scriptText = `
+    ${script}
+    return window['${appName}']
+  `
   // eslint-disable-next-line no-new-func
-  new Function(script).call(window, window)
+  return new Function(scriptText).call(window, window)
 }
 
-export const performScriptForEval = (script) => {
+export const performScriptForEval = (script, appName) => {
+  const scriptText = `
+    () => {
+      ${script}
+      return window['${appName}']
+    }
+  `
   // eslint-disable-next-line no-eval
-  eval(script)
+  return eval(scriptText).call(window, window)
 }

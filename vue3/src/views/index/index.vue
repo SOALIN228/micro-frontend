@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { main } from '@/utils/global'
+// import { main } from '@/utils/global'
 import NavTitle from './components/navTitle.vue'
 import IndexAd from './components/ad.vue'
 import CarSwapper from './components/carSwapper.vue'
@@ -27,9 +27,9 @@ export default {
     NewsList,
   },
   setup () {
-    if (main.appInfo) {
-      // main.appInfo.crumbsState.setCrumbs([])
-    }
+    // if (main.appInfo) {
+    // main.appInfo.crumbsState.setCrumbs([])
+    // }
   },
 }
 </script>
