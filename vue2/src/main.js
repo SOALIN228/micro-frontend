@@ -42,9 +42,10 @@ export async function mount () {
  */
 export async function unmount (ctx) {
   instance = null
-  const { container } = ctx
-  if (container) {
-    document.querySelector(container).innerHTML = ''
-  }
+  console.log('ctx', ctx)
+  // const { container } = ctx
+  // if (container) {
+  //   document.querySelector(container).innerHTML = ''
+  // }
 }
 

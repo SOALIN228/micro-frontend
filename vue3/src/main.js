@@ -26,10 +26,11 @@ export async function mount (app) {
 }
 
 export async function unmount (ctx) {
-  instance.unmount()
+  instance?.unmount()
   instance = null
-  const { container } = ctx
-  if (container) {
-    document.querySelector(container).innerHTML = ''
-  }
+  console.log('ctx', ctx)
+  // const { container } = ctx
+  // if (container) {
+  //   document.querySelector(container).innerHTML = ''
+  // }
 }

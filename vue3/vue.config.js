@@ -16,7 +16,7 @@ module.exports = defineConfig({
   filenameHashing: true,
   publicPath: 'http://localhost:9005',
   devServer: {
-    hot: true,
+    hot: false,
     port,
     headers: {
       'Access-Control-Allow-Origin': '*',

@@ -14,8 +14,12 @@ export const lifecycle = async () => {
     return
   }
   // todo 不会触发
-  if (prevApp && prevApp.destoryed) {
-    destoryed(prevApp)
+  if (prevApp && prevApp.unmount) {
+    if (prevApp.proxy) {
+      // 将沙箱销毁
+      prevApp.proxy.inactive()
+    }
+    await destoryed(prevApp)
   }
 
   const app = await beforeLoad(nextApp)
@@ -39,7 +43,7 @@ export const mounted = async (app) => {
 export const destoryed = async (app) => {
   app && app.unmount && app.unmount()
   // 执行主应用的生命周期
-  runMainLifeCycle('destoryed')
+  await runMainLifeCycle('destoryed')
 }
 
 // 执行主应用的生命周期
