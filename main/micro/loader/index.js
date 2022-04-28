@@ -8,13 +8,12 @@ export const loadHtml = async (app) => {
   // 子应用的入口
   const entry = app.entry
 
-  const [dom, scripts] = await parseHtml(entry)
+  const [dom, scripts] = await parseHtml(entry, app.name)
   const ct = document.querySelector(container)
   if (!ct) {
     throw new Error('容器不存在')
   }
   ct.innerHTML = dom
-  console.log('scripts', scripts)
   scripts.forEach(item => {
     sandBox(app, item)
   })
@@ -22,8 +21,14 @@ export const loadHtml = async (app) => {
   return app
 }
 
+const cache = {} // 根据子应用的name来做缓存
+
 // 解析资源
-export const parseHtml = async (entry) => {
+export const parseHtml = async (entry, name) => {
+  if (cache[name]) {
+    return cache[name]
+  }
+
   const html = await fetchResource(entry)
   let allScript = []
   const div = document.createElement('div')
@@ -33,6 +38,8 @@ export const parseHtml = async (entry) => {
   // 加载资源
   const fetchedScripts = await Promise.all(scriptUrl.map(async item => fetchResource(item)))
   allScript = script.concat(fetchedScripts)
+  // 缓存
+  cache[name] = [dom, allScript]
 
   return [dom, allScript]
 }
