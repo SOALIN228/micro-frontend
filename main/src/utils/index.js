@@ -1,5 +1,12 @@
-import { registerMicroApps, start } from '../../micro'
+import { registerMicroApps, start, createStore } from '../../micro'
 import { loading } from '../store'
+
+const store = createStore()
+window.store = store
+
+store.subscribe((newValue, oldValue) => {
+  console.log(newValue, oldValue, '---')
+})
 
 // 注册子应用
 export const registerApp = (list) => {

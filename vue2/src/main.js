@@ -32,6 +32,12 @@ export async function bootstrap () {
  * @returns {Promise<void>}
  */
 export async function mount () {
+  window.custom.on('test2', data => {
+    console.log('test2---data', data)
+  })
+  window.custom.emit('test1', {
+    a: 1
+  })
   render()
 }
 

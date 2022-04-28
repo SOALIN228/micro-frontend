@@ -2,6 +2,10 @@ import { setList, getList } from './const/subApps'
 import { setMainLifecycle } from './const/mainLifeCycle'
 import { rewriteRouter } from './router/rewriteRouter'
 import { currentApp } from './utils'
+import { Custom } from './customevent'
+
+const custom = new Custom()
+window.custom = custom
 
 // 实现路由拦截
 rewriteRouter()
@@ -9,10 +13,7 @@ rewriteRouter()
 // 注册应用到微前端框架
 export const registerMicroApps = (appList, lifeCycle) => {
   setList(appList)
-  lifeCycle.beforeLoad[0]()
-  setTimeout(() => {
-    lifeCycle.mounted[0]()
-  }, 1000)
+
   setMainLifecycle(lifeCycle)
 }
 

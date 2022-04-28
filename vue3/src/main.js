@@ -21,6 +21,17 @@ export async function bootstrap () {
 }
 
 export async function mount (app) {
+  const storeData = window.store.getStore()
+  window.store.update({
+    ...storeData,
+    a: 11
+  })
+  window.custom.on('test1', data => {
+    console.log('test1---data', data)
+    window.custom.emit('test2', {
+      b: 2
+    })
+  })
   setMain(app)
   render()
 }

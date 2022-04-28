@@ -1,5 +1,5 @@
 // 快照沙箱
-// 应用场景： 兼容性好，适合老版本的浏览器，缺点是遍历window 性能较差
+// 应用场景： 兼容性好，适合老版本的浏览器，缺点是遍历window 会导致性能较差
 export class SnapShotSandbox {
   constructor () {
     // 代理对象

@@ -36,7 +36,10 @@ export const beforeLoad = async (app) => {
 }
 
 export const mounted = async (app) => {
-  app && app.mount && app.mount()
+  app && app.mount && app.mount({
+    appInfo: app.appInfo,
+    entry: app.entry
+  })
   await runMainLifeCycle('mounted')
 }
 
