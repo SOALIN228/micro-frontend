@@ -1,4 +1,4 @@
-import { registerMicroApps, start, createStore } from '../../micro'
+import { registerMicroApps, start, createStore } from 'micro-soa-lib'
 import { loading } from '../store'
 
 const store = createStore()
