@@ -9,19 +9,19 @@ const render = () => {
   ), document.getElementById('app-react'))
 }
 
-if (!window.__MICRO_WEB__) {
+if (!window.__POWERED_BY_QIANKUN__) {
   render()
 }
 
-export const bootstrap = () => {
+export const bootstrap = async () => {
   console.log('bootstrap')
 }
 
-export const mount = () => {
+export const mount = async () => {
   render()
 }
 
-export const unmount = () => {
+export const unmount = async () => {
   console.log('卸载')
 }
 

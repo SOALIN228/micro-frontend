@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "micro-soa-lib": "^1.0.0",
+    "qiankun": "^2.7.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },

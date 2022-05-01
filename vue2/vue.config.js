@@ -30,7 +30,7 @@ module.exports = defineConfig({
     },
     output: {
       // 把子应用打包成 umd 库格式 commonjs 浏览器，node环境
-      library: `${packageName}`,
+      library: `${packageName}-[name]`,
       libraryTarget: 'umd',
     },
   },

@@ -1,13 +1,14 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { name } = require('./package');
 
 module.exports = {
   entry: { path: ['regenerator-runtime/runtime', './index.js'] },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'react16.js',
-    library: 'react16',
+    library: `${name}-[name]`,
     libraryTarget: 'umd',
     umdNamedDefine: true,
     publicPath: 'http://localhost:9003'

@@ -14,7 +14,7 @@ const render = () => {
 }
 
 // 项目单独启动
-if (!window.__MICRO_WEB__) {
+if (!window.__POWERED_BY_QIANKUN__) {
   render()
 }
 
@@ -32,12 +32,12 @@ export async function bootstrap () {
  * @returns {Promise<void>}
  */
 export async function mount () {
-  window.custom.on('test2', data => {
-    console.log('test2---data', data)
-  })
-  window.custom.emit('test1', {
-    a: 1
-  })
+  // window.custom.on('test2', data => {
+  //   console.log('test2---data', data)
+  // })
+  // window.custom.emit('test1', {
+  //   a: 1
+  // })
   render()
 }
 

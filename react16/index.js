@@ -8,19 +8,19 @@ const render = () => {
   ReactDOM.render(<BasicMap/>, document.getElementById('app-react'))
 }
 
-if (!window.__MICRO_WEB__) {
+if (!window.__POWERED_BY_QIANKUN__) {
   render()
 }
 
-export const bootstrap = () => {
+export const bootstrap = async () => {
   console.log('bootstrap')
 }
 
-export const mount = (app) => {
+export const mount = async (app) => {
   setMain(app)
   render()
 }
 
-export const unmount = () => {
+export const unmount = async () => {
   console.log('卸载')
 }

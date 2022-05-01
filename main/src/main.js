@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { subNavList } from './store/sub'
-import { registerApp } from './utils'
+import { registerApp } from './utils/qiankun'
 
 registerApp(subNavList)
 

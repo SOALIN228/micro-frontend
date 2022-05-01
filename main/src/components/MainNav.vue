@@ -67,6 +67,7 @@ export default defineComponent({
         return
       }
       currentIndex.value = index
+      console.log('data.url', data.url)
       router.push(data.url)
     }
 

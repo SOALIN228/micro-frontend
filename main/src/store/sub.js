@@ -3,30 +3,30 @@ import * as appInfo from '../store'
 export const subNavList = [
   {
     name: 'react15',// 唯一
-    entry: '//localhost:9002/',
+    entry: '//localhost:9002',
     container: '#micro-container',
     activeRule: '/react15',
-    appInfo,
+    props: appInfo,
   },
   {
     name: 'react16',
-    entry: '//localhost:9003/',
+    entry: '//localhost:9003',
     container: '#micro-container',
     activeRule: '/react16',
-    appInfo,
+    props: appInfo,
   },
   {
     name: 'vue2',
-    entry: '//localhost:9004/',
+    entry: '//localhost:9004',
     container: '#micro-container',
     activeRule: '/vue2',
-    appInfo,
+    props: appInfo,
   },
   {
     name: 'vue3',
-    entry: '//localhost:9005/',
+    entry: '//localhost:9005',
     container: '#micro-container',
     activeRule: '/vue3',
-    appInfo,
+    props: appInfo,
   },
 ]

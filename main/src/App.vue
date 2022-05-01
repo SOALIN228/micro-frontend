@@ -10,6 +10,7 @@
 
 <script>
 import { defineComponent } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import Header from './components/Header'
 import MainNav from '@/components/MainNav'
 import Loading from '@/components/Loading'
@@ -25,6 +26,12 @@ export default defineComponent({
     Footer
   },
   setup () {
+    const router = useRouter()
+    const route = useRoute()
+    // 默认选中第一项
+    if (route.path === '/') {
+      router.push('/vue3/#/index')
+    }
     return {
       loading: loading.loadingStatus,
       headerStatus: header.headerStatus,
